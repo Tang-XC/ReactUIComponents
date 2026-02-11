@@ -158,6 +158,19 @@ function App() {
               <Button>bottom-end</Button>
             </Popover>
           </div>
+          <div>
+            <Input size="large" suffix={<Icon name="search" />}></Input>
+            <AutoComplete
+              options={[
+                "Red",
+                "Orange",
+                "Yellow",
+                "Green",
+                "Cyan",
+                "Blue",
+                "Purple",
+              ]}></AutoComplete>
+          </div>
         </div>
       </div>
     </>

@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import type { iconProps } from "./types";
 import { ICON_VARIANT_MAP } from "./types";
 import { cn } from "@/utils/tools";
-export const Icon: React.FC<iconProps> = function (props: iconProps) {
+export const Icon: React.FC<iconProps> = function (props) {
   const { className = "", style, name, size, color = "inherit", variant } = props;
   const variantClass = useMemo(() => {
     if (variant) {

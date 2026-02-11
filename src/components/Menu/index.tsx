@@ -3,7 +3,7 @@ import VerticalItem from "./verticalItem";
 import HorizontalItem from "./horizontalItem";
 import { createContext, useEffect, useState } from "react";
 export const context = createContext<contextType>({});
-export const Menu: React.FC<menuProps> = function (props: menuProps) {
+export const Menu: React.FC<menuProps> = function (props) {
   const {
     className = "",
     style,

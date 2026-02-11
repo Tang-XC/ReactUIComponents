@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ComponentRef, useMemo, useCallback } 
 import type { autoCompleteProps } from "./types";
 import { debounce } from "@/utils/tools";
 
-export const AutoComplete: React.FC<autoCompleteProps> = (props: autoCompleteProps) => {
+export const AutoComplete: React.FC<autoCompleteProps> = (props) => {
   const {
     options = [],
     value: propsValue,
@@ -18,7 +18,6 @@ export const AutoComplete: React.FC<autoCompleteProps> = (props: autoCompletePro
   const isControlled = propsValue !== undefined;
   const [innerValue, setInnerValue] = useState(defaultValue);
   const mergedValue = isControlled ? propsValue : innerValue;
-
   const [currentOptions, setCurrentOptions] = useState<string[]>([]);
   const [currentPopupWidth, setCurrentPopupWidth] = useState<string | number>(popupWidth);
   const performSearch = useCallback(
@@ -49,7 +48,6 @@ export const AutoComplete: React.FC<autoCompleteProps> = (props: autoCompletePro
     onChange?.(evt);
     debouncedSearch(newValue);
   };
-
   const handleSelect = (val: string) => {
     if (!isControlled) {
       setInnerValue(val);

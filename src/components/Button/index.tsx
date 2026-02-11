@@ -10,7 +10,7 @@ import {
 } from "./types";
 import { cn } from "@/utils/tools";
 import { useMemo } from "react";
-export const Button: React.FC<buttonProps> = function (props: buttonProps) {
+export const Button: React.FC<buttonProps> = function (props) {
   const {
     className = "",
     variant = "primary",

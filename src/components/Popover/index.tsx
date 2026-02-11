@@ -16,7 +16,7 @@ import {
 } from "@floating-ui/react";
 
 import type { popoverProps } from "./types";
-export const Popover: React.FC<popoverProps> = function (props: popoverProps) {
+export const Popover: React.FC<popoverProps> = function (props) {
   const {
     title,
     content,

@@ -20,6 +20,7 @@ declare global {
   const BUTTON_VARIANT_MAP_HOVER: typeof import('./components/Button/types').BUTTON_VARIANT_MAP_HOVER
   const BUTTON_VARIANT_MAP_TEXT: typeof import('./components/Button/types').BUTTON_VARIANT_MAP_TEXT
   const Button: typeof import('./components/Button/index').Button
+  const Checkbox: typeof import('./components/Checkbox/index').Checkbox
   const Default: typeof import('./components/Popover/index.stories').Default
   const Form: typeof import('./components/Form/index').Form
   const ICON_VARIANT_MAP: typeof import('./components/Icon/types').ICON_VARIANT_MAP
@@ -31,8 +32,13 @@ declare global {
   const LIGHTER_BUTTON_BG: typeof import('./components/Button/types').LIGHTER_BUTTON_BG
   const Menu: typeof import('./components/Menu/index').Menu
   const Popover: typeof import('./components/Popover/index').Popover
+  const Radio: typeof import('./components/Radio/index').Radio
   const buttonStories: typeof import('./components/Button/index.stories').default
   const context: typeof import('./components/Menu/index').context
+  const dispatch: typeof import('./components/Form/useStore').dispatch
+  const fields: typeof import('./components/Form/useStore').fields
+  const form: typeof import('./components/Form/useStore').form
+  const group: typeof import('./components/Radio/group').default
   const horizontalItem: typeof import('./components/Menu/horizontalItem').default
   const iconStories: typeof import('./components/Icon/index.stories').default
   const indexStories: typeof import('./components/Popover/index.stories').default
@@ -40,6 +46,7 @@ declare global {
   const menuStories: typeof import('./components/Menu/index.stories').default
   const popoverStories: typeof import('./components/Popover/index.stories').default
   const sub: typeof import('./components/Menu/sub').default
+  const useStore: typeof import('./components/Form/useStore').default
   const verticalItem: typeof import('./components/Menu/verticalItem').default
 }
 // for type re-export
@@ -51,8 +58,14 @@ declare global {
   export type { buttonVariant, buttonEffect, buttonSize, buttonProps } from './components/Button/types'
   import('./components/Button/types')
   // @ts-ignore
-  export type { formProps } from './components/Form/types'
+  export type { checkboxProps } from './components/Checkbox/types'
+  import('./components/Checkbox/types')
+  // @ts-ignore
+  export type { formLayout, formRules, formProps, itemProps, formContext } from './components/Form/types'
   import('./components/Form/types')
+  // @ts-ignore
+  export type { FieldDetail, FieldsState, FormState, FieldsAction } from './components/Form/useStore'
+  import('./components/Form/useStore')
   // @ts-ignore
   export type { iconProps } from './components/Icon/types'
   import('./components/Icon/types')
@@ -65,4 +78,7 @@ declare global {
   // @ts-ignore
   export type { triggerType, popoverProps } from './components/Popover/types'
   import('./components/Popover/types')
+  // @ts-ignore
+  export type { radioProps, groupLayout, groupOptions, groupProps } from './components/Radio/types'
+  import('./components/Radio/types')
 }
