@@ -48,7 +48,7 @@ export const AutoComplete: React.FC<autoCompleteProps> = (props) => {
     onChange?.(evt);
     debouncedSearch(newValue);
   };
-  const handleSelect = (val: string) => {
+  const handleSelect = (val: string | number) => {
     if (!isControlled) {
       setInnerValue(val);
     }

@@ -13,8 +13,8 @@ export interface inputProps extends Omit<
   effect?: inputEffect;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  value?: string;
-  defaultValue?: string;
+  value?: string | number;
+  defaultValue?: string | number;
   onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => void;
   onClear?: () => void;
 }
