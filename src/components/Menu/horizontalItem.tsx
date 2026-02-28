@@ -40,7 +40,7 @@ export default function (props: menuItemProps) {
         offset={asChild ? 16 : 12}
         hasArrow={!asChild}
         content={hasSubMenu && RenderSub}
-        onVisibleChange={handleVisibleChange}>
+        onOpenChange={handleVisibleChange}>
         <Button
           className={`w-full h-[44px] ${isSelected && selectedStyle}`}
           icon={itemData.icon}
@@ -49,7 +49,7 @@ export default function (props: menuItemProps) {
           onClick={handleClick}>
           <div className="flex items-center">
             <div className="flex-1">{itemData.label}</div>
-            {hasSubMenu && <Icon name={iconName} />}
+            {hasSubMenu && <Icon name={iconName} size={12} />}
           </div>
         </Button>
       </Popover>

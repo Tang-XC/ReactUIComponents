@@ -63,7 +63,7 @@ export default function (props: menuItemProps) {
         onClick={handleClick}>
         <div className="flex items-center">
           <div className="flex-1">{itemData.label}</div>
-          {hasSubMenu && <Icon name={isCollapsed ? "down" : "up"} />}
+          {hasSubMenu && <Icon name={isCollapsed ? "down" : "up"} size={12} />}
         </div>
       </Button>
       {hasSubMenu && RenderSub()}

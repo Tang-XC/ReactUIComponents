@@ -14,8 +14,8 @@ export const Menu: React.FC<menuProps> = function (props) {
     multiple = false,
     onSelect,
   } = props;
-  const [currentSelectedKeys, setCurrentSelectedKeys] = useState<string[]>(selectedKeys);
-  const setSelectedKeys = (key: string) => {
+  const [currentSelectedKeys, setCurrentSelectedKeys] = useState<(string | number)[]>(selectedKeys);
+  const setSelectedKeys = (key: string | number) => {
     onSelect?.(key, selectedKeys);
     if (multiple) {
       if (currentSelectedKeys.includes(key)) {

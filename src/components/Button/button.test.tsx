@@ -36,7 +36,7 @@ describe("Button Component", () => {
     expect(button.className).toContain("px-4");
     expect(button.className).toContain("py-2");
 
-    rerender(<Button size="medium">Medium</Button>);
+    rerender(<Button size="default">default</Button>);
     button = screen.getByRole("button");
     expect(button.className).toContain("px-6");
     expect(button.className).toContain("py-3");

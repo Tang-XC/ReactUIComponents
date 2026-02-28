@@ -20,6 +20,8 @@ declare global {
   const BUTTON_VARIANT_MAP_HOVER: typeof import('./components/Button/types').BUTTON_VARIANT_MAP_HOVER
   const BUTTON_VARIANT_MAP_TEXT: typeof import('./components/Button/types').BUTTON_VARIANT_MAP_TEXT
   const Button: typeof import('./components/Button/index').Button
+  const CASCADER_SIZE_MAP: typeof import('./components/Cascader/types').CASCADER_SIZE_MAP
+  const Cascader: typeof import('./components/Cascader/index').Cascader
   const Checkbox: typeof import('./components/Checkbox/index').Checkbox
   const Default: typeof import('./components/Popover/index.stories').Default
   const Form: typeof import('./components/Form/index').Form
@@ -33,6 +35,11 @@ declare global {
   const Menu: typeof import('./components/Menu/index').Menu
   const Popover: typeof import('./components/Popover/index').Popover
   const Radio: typeof import('./components/Radio/index').Radio
+  const SELECT_SIZE_MAP: typeof import('./components/Select/types').SELECT_SIZE_MAP
+  const SWITCH_SIZE_MAP: typeof import('./components/Switch/types').SWITCH_SIZE_MAP
+  const SWITCH_VARIANT_MAP: typeof import('./components/Switch/types').SWITCH_VARIANT_MAP
+  const Select: typeof import('./components/Select/index').Select
+  const Switch: typeof import('./components/Switch/index').Switch
   const buttonStories: typeof import('./components/Button/index.stories').default
   const context: typeof import('./components/Menu/index').context
   const dispatch: typeof import('./components/Form/useStore').dispatch
@@ -43,6 +50,7 @@ declare global {
   const iconStories: typeof import('./components/Icon/index.stories').default
   const indexStories: typeof import('./components/Popover/index.stories').default
   const item: typeof import('./components/Menu_副本/item').default
+  const menu: typeof import('./components/Cascader/menu').default
   const menuStories: typeof import('./components/Menu/index.stories').default
   const popoverStories: typeof import('./components/Popover/index.stories').default
   const sub: typeof import('./components/Menu/sub').default
@@ -57,6 +65,9 @@ declare global {
   // @ts-ignore
   export type { buttonVariant, buttonEffect, buttonSize, buttonProps } from './components/Button/types'
   import('./components/Button/types')
+  // @ts-ignore
+  export type { cascaderOption, cascaderSize, cascaderContext, cascaderProps, cascaderMenuProps } from './components/Cascader/types'
+  import('./components/Cascader/types')
   // @ts-ignore
   export type { checkboxProps } from './components/Checkbox/types'
   import('./components/Checkbox/types')
@@ -81,4 +92,10 @@ declare global {
   // @ts-ignore
   export type { radioProps, groupLayout, groupOptions, groupProps } from './components/Radio/types'
   import('./components/Radio/types')
+  // @ts-ignore
+  export type { selectOptions, selectSize, selectProps } from './components/Select/types'
+  import('./components/Select/types')
+  // @ts-ignore
+  export type { switchSize, switchVariant, switchProps } from './components/Switch/types'
+  import('./components/Switch/types')
 }

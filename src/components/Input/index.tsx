@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, useImperativeHandle, forwardRef } from "react";
+import { useMemo, useRef, useState, useImperativeHandle, forwardRef } from "react";
 import { type inputProps, INPUT_SIZE_MAP, INPUT_EFFECT_MAP } from "./types";
 
 export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
@@ -23,7 +23,7 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
   );
   const isShowClear = useMemo(() => clearable && restProps.value, [clearable, restProps.value]);
   const disabledStyle = useMemo(
-    () => (disabled ? "pointer-events-none bg-disabled" : ""),
+    () => (disabled ? "pointer-events-none opacity-50 bg-disabled" : ""),
     [disabled],
   );
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +65,7 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
   useImperativeHandle(ref, () => inputRef.current!);
   return (
     <div
-      className={`flex items-center  px-2.5 box-border hover:shadow-hover ${INPUT_EFFECT_MAP[effect]} ${INPUT_SIZE_MAP[size]} ${focusStyle} ${disabledStyle}`}>
+      className={`flex items-center px-2.5 box-border hover:shadow-hover ${INPUT_EFFECT_MAP[effect]} ${INPUT_SIZE_MAP[size]} ${focusStyle} ${disabledStyle}`}>
       {prefix && <div className="mr-2">{prefix}</div>}
       <input
         {...restProps}

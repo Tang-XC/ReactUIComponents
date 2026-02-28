@@ -18,6 +18,8 @@ import {
 import type { popoverProps } from "./types";
 export const Popover: React.FC<popoverProps> = function (props) {
   const {
+    className,
+    style,
     title,
     content,
     placement = "bottom",
@@ -28,6 +30,7 @@ export const Popover: React.FC<popoverProps> = function (props) {
     contentStyle,
     trigger = "hover",
     onOpenChange,
+    ...restProps
   } = props;
   const arrowRef = useRef(null);
   const contentRef = useRef(null);
@@ -67,22 +70,23 @@ export const Popover: React.FC<popoverProps> = function (props) {
 
   return (
     <>
-      <div ref={refs.setReference} {...getReferenceProps()}>
+      <div ref={refs.setReference} {...getReferenceProps()} className={className} style={style}>
         {children}
       </div>
       {content ? (
         <CSSTransition
           nodeRef={contentRef}
-          in={show}
+          in={"open" in restProps ? restProps.open : show}
           timeout={300}
           classNames="zoomIn"
           unmountOnExit>
-          <div ref={contentRef} className="absolute origin-center">
+          <div ref={contentRef} className="absolute origin-center z-10">
             <div
-              className={`bg-white p-2 rounded-sm shadow-around ${contentClass}`}
+              className={`bg-white p-2 rounded-sm shadow-around ${contentClass} `}
               ref={refs.setFloating}
               style={{ ...floatingStyles, ...(contentStyle || {}) }}
               {...getFloatingProps()}>
+              {title && <div className="mb-1 text-sm font-medium">{title}</div>}
               {content}
               {hasArrow && (
                 <FloatingArrow ref={arrowRef} context={context} fill="#fff" stroke="#000" />

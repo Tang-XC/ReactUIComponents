@@ -19,6 +19,7 @@ export const Button: React.FC<buttonProps> = function (props) {
     effect = "solid",
     children,
     disabled,
+    type = "button",
     ...restProps
   } = props;
   const baseClass =
@@ -46,8 +47,8 @@ export const Button: React.FC<buttonProps> = function (props) {
     className,
   );
   return (
-    <button className={classes} disabled={disabled} {...restProps}>
-      <div className="w-full flex items-center gap-3">
+    <button className={classes} disabled={disabled} type={type} {...restProps}>
+      <div className={`w-full flex items-center ${children ? "gap-3" : ""}`}>
         {icon}
         <div className="text-md flex-1 text-left text-nowrap">{children}</div>
       </div>

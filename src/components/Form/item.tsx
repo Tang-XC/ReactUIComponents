@@ -1,16 +1,16 @@
-import React, { useMemo, useContext, useEffect, type ChangeEvent } from "react";
+import React, { useContext, useEffect } from "react";
 import type { itemProps } from "./types";
 import { context } from "./index";
 export default function (props: itemProps) {
   const {
     label = "",
     name,
-    labelWidth = "auto",
+    labelWidth,
     layout = "horizontal",
     children,
     valuePropName = "value",
   } = props;
-  const { dispatch, fields } = useContext(context);
+  const { dispatch, fields, initialValues, labelWidth: contextLabelWidth } = useContext(context);
   const fieldState = fields[name];
   const value = fieldState && fieldState.value;
 
@@ -50,6 +50,7 @@ export default function (props: itemProps) {
     ...controlProps,
   });
   useEffect(() => {
+    const value = (initialValues && initialValues[name]) || "";
     dispatch({
       type: "addField",
       name: name,
@@ -61,7 +62,7 @@ export default function (props: itemProps) {
       <label
         className="text-neutral-500 mr-3"
         style={{
-          width: labelWidth,
+          width: contextLabelWidth || labelWidth,
         }}
         title={label}>
         {label ? label + ":" : ""}

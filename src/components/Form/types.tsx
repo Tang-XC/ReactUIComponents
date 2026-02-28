@@ -11,6 +11,7 @@ export interface formProps {
   labelWidth?: string | number;
   layout?: formLayout;
   children?: ReactNode;
+  initialValues?: Record<string, any>;
 }
 export interface itemProps {
   label?: string;
@@ -21,4 +22,5 @@ export interface itemProps {
   labelWidth?: string | number;
   valuePropName?: "value" | "checked";
 }
-export type formContext = ReturnType<typeof useStore>;
+export type formContext = ReturnType<typeof useStore> &
+  Pick<formProps, "initialValues" | "labelWidth">;

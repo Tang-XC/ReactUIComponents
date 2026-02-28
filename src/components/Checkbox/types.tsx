@@ -11,12 +11,12 @@ export interface checkboxProps extends Omit<inputProps, "size" | "prefix"> {
 }
 export interface groupOptions {
   label: string;
-  value: string;
+  value: any;
 }
 export interface groupProps extends Omit<checkboxProps, "defaultChecked" | "onChange"> {
   layout?: groupLayout;
   options: groupOptions[];
-  defaultChecked?: string[];
-  value?: string[];
+  defaultChecked?: any[];
+  value?: any[];
   onChange?: (val: string[]) => void;
 }

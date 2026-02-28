@@ -9,11 +9,11 @@ export interface radioProps extends Omit<inputProps, "size" | "prefix"> {
   children?: React.ReactNode;
 }
 export type groupLayout = "vertical" | "horizontal";
-export interface groupOptions<T = string | number> {
+export interface groupOptions {
   label: string;
-  value: T;
+  value: any;
 }
-export interface groupProps<T> extends radioProps {
-  options: groupOptions<T>[];
+export interface groupProps extends radioProps {
+  options: groupOptions[];
   layout?: groupLayout;
 }

@@ -1,6 +1,8 @@
 import type { Placement } from "@floating-ui/react-dom";
 export type triggerType = "click" | "hover" | "focus";
 export interface popoverProps {
+  style?: React.CSSProperties;
+  className?: string;
   title?: String;
   content: React.ReactNode;
   placement?: Placement;

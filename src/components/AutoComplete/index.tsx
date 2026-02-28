@@ -61,23 +61,20 @@ export const AutoComplete: React.FC<autoCompleteProps> = (props) => {
     }
   }, [popupWidth]);
 
-  const renderMenu = () => {
-    if (currentOptions.length === 0) return null;
-    return (
-      <Menu
-        style={{ width: currentPopupWidth }}
-        onSelect={handleSelect}
-        items={currentOptions.map((item) => ({ label: item, key: item }))}
-      />
-    );
-  };
+  const renderMenu = (
+    <Menu
+      style={{ width: currentPopupWidth }}
+      onSelect={handleSelect}
+      items={currentOptions.map((item) => ({ label: item, key: item }))}
+    />
+  );
 
   return (
     <div>
       <Popover
         trigger="focus"
         hasArrow={false}
-        content={mergedValue !== "" && currentOptions.length > 0 ? renderMenu() : null}
+        content={mergedValue !== "" && currentOptions.length > 0 ? renderMenu : null}
         placement="bottom">
         <Input ref={inputRef} value={mergedValue} onChange={handleChange} {...restProps} />
       </Popover>

@@ -51,7 +51,7 @@ export const BUTTON_VARIANT_MAP_TEXT: Record<buttonVariant, string> = {
   warning: 'text-warning-500',
 }
 export const BUTTON_SIZE_MAP: Record<buttonSize, string> = {
-  mini: 'px-2 py-1',
+  mini: 'px-2 py-0.5',
   small: 'px-4 py-2',
   default: 'px-6 py-3',
   large: 'px-8 py-4',

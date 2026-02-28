@@ -77,7 +77,7 @@ function App() {
           </div>
           <div className="flex items-center gap-2">
             <Button size="small">Hello</Button>
-            <Button size="medium">Hello</Button>
+            <Button size="default">Hello</Button>
             <Button size="large">Hello</Button>
           </div>
           <div>

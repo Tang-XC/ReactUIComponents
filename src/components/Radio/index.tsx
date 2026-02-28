@@ -1,28 +1,34 @@
-import { useState, useRef, useEffect, type ChangeEvent } from "react";
+import { useState, useRef, useMemo, type ChangeEvent } from "react";
 import type { radioProps } from "./types";
 import Group from "./group";
 import { CSSTransition } from "react-transition-group";
 
 export const Radio: React.FC<radioProps> & { Group: typeof Group } = (props) => {
-  const { children, className, style, checked, onChange, ...restProps } = props;
+  const { children, className, style, checked, disabled, onChange, ...restProps } = props;
   const pointRef = useRef(null);
   const [active, setActive] = useState(restProps.defaultChecked);
   const isControlled = checked !== undefined;
   const mergedValue = isControlled ? checked : active;
+  const disabledStyle = useMemo(
+    () => (disabled ? "pointer-events-none opacity-50 bg-disabled" : ""),
+    [disabled],
+  );
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    if (disabled) return;
     setActive(evt.target.checked);
     onChange?.(evt);
   };
   return (
     <div className={`flex ${className}`} style={style}>
-      <div className="w-[16px] h-[16px] grid place-content-center cursor-pointer rounded-lg shadow-border">
+      <div
+        className={`w-[16px] h-[16px] grid place-content-center cursor-pointer rounded-lg shadow-border ${disabledStyle}`}>
         <CSSTransition
           nodeRef={pointRef}
           in={mergedValue}
           timeout={300}
           classNames="popUp"
           unmountOnExit>
-          <div ref={pointRef} className="rounded-lg w-[12px] h-[12px] bg-primary-500"></div>
+          <div ref={pointRef} className={`rounded-lg w-[12px] h-[12px] bg-primary-500`}></div>
         </CSSTransition>
         <input
           className="absolute w-[16px] h-[16px] opacity-0 z-10"
