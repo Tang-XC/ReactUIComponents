@@ -76,7 +76,7 @@ export const Select: React.FC<selectProps> = (props) => {
         open={isFocus}
         contentStyle={{ width: selectRef.current?.offsetWidth + "px" }}
         content={renderOptions}>
-        <div className="w-full h-[22px] flex items-center">
+        <div className="w-full h-5.5 flex items-center">
           <div className="flex-1">
             {mergedValue === "" ? (
               <div className="text-neutral-400">{placeholder}</div>

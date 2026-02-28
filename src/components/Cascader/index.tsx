@@ -84,7 +84,8 @@ export const Cascader: React.FC<cascaderProps> = (props) => {
   return (
     <div
       ref={cascaderRef}
-      className={`w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${SELECT_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
+      className={`w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${CASCADER_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
+      style={style}
       onClick={handleClick}>
       <Popover
         trigger="click"
@@ -104,7 +105,7 @@ export const Cascader: React.FC<cascaderProps> = (props) => {
             />
           </context.Provider>
         }>
-        <div className="w-full h-[22px] flex items-center">
+        <div className="w-full h-5.5 flex items-center">
           <div className="flex-1">
             {mergedValue?.length === 0 ? (
               <div className="text-neutral-400">{placeholder}</div>

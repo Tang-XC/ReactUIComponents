@@ -70,7 +70,7 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
       <input
         {...restProps}
         ref={inputRef}
-        className="w-full h-[22px] outline-none placeholder-neutral-300"
+        className="w-full h-5.5 outline-none placeholder-neutral-300"
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}></input>

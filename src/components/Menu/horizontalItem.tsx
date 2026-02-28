@@ -34,7 +34,7 @@ export default function (props: menuItemProps) {
     </ul>
   );
   return (
-    <li className={`my-1 ${asChild ? "min-w-[180px]" : "min-w-[200px]"}`}>
+    <li className={`my-1 ${asChild ? "min-w-45" : "min-w-50"}`}>
       <Popover
         placement={asChild ? "right" : "bottom"}
         offset={asChild ? 16 : 12}
@@ -42,7 +42,7 @@ export default function (props: menuItemProps) {
         content={hasSubMenu && RenderSub}
         onOpenChange={handleVisibleChange}>
         <Button
-          className={`w-full h-[44px] ${isSelected && selectedStyle}`}
+          className={`w-full h-11 ${isSelected && selectedStyle}`}
           icon={itemData.icon}
           size={size}
           effect="text"

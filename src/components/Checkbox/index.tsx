@@ -20,7 +20,7 @@ export const Checkbox: React.FC<checkboxProps> & { Group: typeof Group } = (prop
   return (
     <div className={`flex ${className}`} style={style}>
       <div
-        className={`w-[16px] h-[16px] grid place-content-center cursor-pointer rounded-sm shadow-border ${disabledStyle}`}>
+        className={`w-4 h-4 grid place-content-center cursor-pointer rounded-sm shadow-border ${disabledStyle}`}>
         <CSSTransition
           nodeRef={pointRef}
           in={mergedValue}
@@ -29,13 +29,13 @@ export const Checkbox: React.FC<checkboxProps> & { Group: typeof Group } = (prop
           unmountOnExit>
           <div
             ref={pointRef}
-            className="rounded-sm w-[16px] h-[16px] bg-primary-500 grid place-content-center">
+            className="rounded-sm w-4 h-4 bg-primary-500 grid place-content-center">
             <Icon name="yes" color="#FFF" size={10} />
           </div>
         </CSSTransition>
 
         <input
-          className="absolute w-[16px] h-[16px] opacity-0 z-10"
+          className="absolute w-4 h-4 opacity-0 z-10"
           {...restProps}
           type="checkbox"
           checked={mergedValue}

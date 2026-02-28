@@ -18,7 +18,7 @@ export const Form: React.FC<formProps> & { Item: typeof Item } = (props) => {
         }}>
         {children}
       </context.Provider>
-      <div className="w-[300px]">{JSON.stringify(fields)}</div>
+      <div className="w-75">{JSON.stringify(fields)}</div>
     </form>
   );
 };
