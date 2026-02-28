@@ -71,9 +71,9 @@ export const Select: React.FC<selectProps> = (props) => {
       onClick={handleClick}>
       <Popover
         trigger="click"
-        contentClass="custom-class"
         hasArrow={false}
         open={isFocus}
+        className="w-full"
         contentStyle={{ width: selectRef.current?.offsetWidth + "px" }}
         content={renderOptions}>
         <div className="w-full h-5.5 flex items-center">

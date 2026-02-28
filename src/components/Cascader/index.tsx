@@ -89,9 +89,9 @@ export const Cascader: React.FC<cascaderProps> = (props) => {
       onClick={handleClick}>
       <Popover
         trigger="click"
-        contentClass="custom-class"
         hasArrow={false}
         open={isFocus}
+        className="w-full"
         contentStyle={{ minWidth: cascaderRef.current?.offsetWidth + "px" }}
         content={
           <context.Provider

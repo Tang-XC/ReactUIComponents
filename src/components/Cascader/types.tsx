@@ -26,5 +26,5 @@ export interface cascaderMenuProps {
 export const CASCADER_SIZE_MAP: Record<cascaderSize, string> = {
   small: " py-0 text-sm",
   default: "py-1 text-md",
-  large: "py-1.5 text-lg [&_input]:h-[24px]",
+  large: "py-1.5 text-lg [&_input]:h-6",
 };

@@ -126,6 +126,9 @@ function App() {
             ]}
           />
         </Form.Item>
+        <Form.Item name="date">
+          <DatePicker />
+        </Form.Item>
         <div className="w-full text-right">
           {/* <Button type="submit" size="small">
             提交

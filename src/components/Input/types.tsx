@@ -21,7 +21,7 @@ export interface inputProps extends Omit<
 export const INPUT_SIZE_MAP: Record<inputSize, string> = {
   small: " py-0 text-sm",
   default: "py-1 text-md",
-  large: "py-1.5 text-lg [&_input]:h-[24px]",
+  large: "py-1.5 text-lg [&_input]:h-6",
 };
 export const INPUT_EFFECT_MAP: Record<inputEffect, string> = {
   outlined: "rounded-sm shadow-border",
