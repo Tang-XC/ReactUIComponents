@@ -28,7 +28,7 @@ export const Radio: React.FC<radioProps> & { Group: typeof Group } = (props) => 
           timeout={300}
           classNames="popUp"
           unmountOnExit>
-          <div ref={pointRef} className={`rounded-lg w-[12px] h-[12px] bg-primary-500`}></div>
+          <div ref={pointRef} className={`rounded-lg w-3 h-3 bg-primary-500`}></div>
         </CSSTransition>
         <input
           className="absolute w-4 h-4 opacity-0 z-10"
