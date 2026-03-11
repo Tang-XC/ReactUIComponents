@@ -1,7 +1,7 @@
 import type { menuProps, contextType } from "./types";
 import VerticalItem from "./verticalItem";
 import HorizontalItem from "./horizontalItem";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 export const context = createContext<contextType>({});
 export const Menu: React.FC<menuProps> = function (props) {
   const {

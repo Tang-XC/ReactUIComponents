@@ -42,7 +42,7 @@ export default function (props: menuItemProps) {
         content={hasSubMenu && RenderSub}
         onOpenChange={handleVisibleChange}>
         <Button
-          className={`w-full h-11 ${isSelected && selectedStyle}`}
+          className={`w-full h-11 text-left ${isSelected && selectedStyle}`}
           icon={itemData.icon}
           size={size}
           effect="text"

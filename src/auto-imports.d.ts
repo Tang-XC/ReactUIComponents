@@ -23,8 +23,8 @@ declare global {
   const CASCADER_SIZE_MAP: typeof import('./components/Cascader/types').CASCADER_SIZE_MAP
   const Cascader: typeof import('./components/Cascader/index').Cascader
   const Checkbox: typeof import('./components/Checkbox/index').Checkbox
-  const DATEPICKER_SIZE_MAP: typeof import('./components/DatePicker/types').DATEPICKER_SIZE_MAP
-  const DatePicker: typeof import('./components/DatePicker/index').DatePicker
+  const DATEPICKER_SIZE_MAP: typeof import('./components/DatePickerbak/types').DATEPICKER_SIZE_MAP
+  const DatePicker: typeof import('./components/DatePickerbak/index').DatePicker
   const Default: typeof import('./components/Popover/index.stories').Default
   const Form: typeof import('./components/Form/index').Form
   const ICON_VARIANT_MAP: typeof import('./components/Icon/types').ICON_VARIANT_MAP
@@ -35,6 +35,7 @@ declare global {
   const Item: typeof import('./components/Menu/verticalItem').Item
   const LIGHTER_BUTTON_BG: typeof import('./components/Button/types').LIGHTER_BUTTON_BG
   const Menu: typeof import('./components/Menu/index').Menu
+  const Modal: typeof import('./components/Modal/index').Modal
   const Popover: typeof import('./components/Popover/index').Popover
   const Radio: typeof import('./components/Radio/index').Radio
   const SELECT_SIZE_MAP: typeof import('./components/Select/types').SELECT_SIZE_MAP
@@ -54,8 +55,10 @@ declare global {
   const item: typeof import('./components/Menu_副本/item').default
   const menu: typeof import('./components/Cascader/menu').default
   const menuStories: typeof import('./components/Menu/index.stories').default
-  const pannel: typeof import('./components/DatePicker/pannel').default
+  const panel: typeof import('./components/DatePicker/panel').default
+  const pannel: typeof import('./components/DatePickerbak/pannel').default
   const popoverStories: typeof import('./components/Popover/index.stories').default
+  const range: typeof import('./components/DatePickerbak/range').default
   const sub: typeof import('./components/Menu/sub').default
   const useStore: typeof import('./components/Form/useStore').default
   const verticalItem: typeof import('./components/Menu/verticalItem').default
@@ -75,8 +78,11 @@ declare global {
   export type { checkboxProps } from './components/Checkbox/types'
   import('./components/Checkbox/types')
   // @ts-ignore
-  export type { datePickerSize, datePickerProps, pannelProps } from './components/DatePicker/types'
+  export type { panelProps } from './components/DatePicker/types'
   import('./components/DatePicker/types')
+  // @ts-ignore
+  export type { datePickerSize, datePickerProps, pannelProps, rangeProps } from './components/DatePickerbak/types'
+  import('./components/DatePickerbak/types')
   // @ts-ignore
   export type { formLayout, formRules, formProps, itemProps, formContext } from './components/Form/types'
   import('./components/Form/types')
@@ -92,6 +98,9 @@ declare global {
   // @ts-ignore
   export type { menuMode, menuSize, item, menuItemProps, menuProps, contextType } from './components/Menu/types'
   import('./components/Menu/types')
+  // @ts-ignore
+  export type { modalProps } from './components/Modal/types'
+  import('./components/Modal/types')
   // @ts-ignore
   export type { triggerType, popoverProps } from './components/Popover/types'
   import('./components/Popover/types')

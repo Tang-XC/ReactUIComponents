@@ -56,7 +56,7 @@ export default function (props: menuItemProps) {
   return (
     <li className="mb-1 last:mb-0">
       <Button
-        className={`w-full ${size === "mini" ? "h-7.5" : "h-11"} ${isSelected && selectedStyle}`}
+        className={`w-full text-left ${size === "mini" ? "h-9" : "h-11"} ${isSelected && selectedStyle}`}
         icon={itemData.icon}
         size={size}
         effect="text"

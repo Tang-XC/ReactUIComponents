@@ -4,7 +4,7 @@ import Item from "./item";
 import useStore from "./useStore";
 export const context = createContext<formContext>({} as formContext);
 export const Form: React.FC<formProps> & { Item: typeof Item } = (props) => {
-  const { name, children, layout = "vertical", labelWidth, initialValues } = props;
+  const { name, children, labelWidth, initialValues } = props;
   const { form, fields, dispatch } = useStore();
   return (
     <form name={name}>

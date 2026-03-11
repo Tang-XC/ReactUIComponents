@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import useClickOutSide from "@/hooks/useClickOutSide";
 import { type selectProps, SELECT_SIZE_MAP } from "./types";
 import type { item } from "../Menu/types";
 export const Select: React.FC<selectProps> = (props) => {
@@ -13,8 +14,7 @@ export const Select: React.FC<selectProps> = (props) => {
     defaultValue = "",
     onChange,
   } = props;
-  const selectRef = useRef<HTMLDivElement>(null);
-  const [isFocus, setIsFocus] = useState(false);
+  const { ref, isFocus, setIsFocus } = useClickOutSide();
   const [innerValue, setInnerValue] = useState(defaultValue);
   const mergedValue = useMemo(() => {
     const isControlled = value !== undefined;
@@ -40,17 +40,7 @@ export const Select: React.FC<selectProps> = (props) => {
     setInnerValue(val);
     onChange?.(val);
   };
-  useEffect(() => {
-    const handleClickOutside = (evt: MouseEvent) => {
-      if (selectRef.current && !selectRef.current.contains(evt.target as Node)) {
-        setIsFocus(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
+
   const renderOptions = (
     <Menu
       onSelect={handleSelect}
@@ -65,7 +55,7 @@ export const Select: React.FC<selectProps> = (props) => {
   );
   return (
     <div
-      ref={selectRef}
+      ref={ref}
       className={`w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${SELECT_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
       style={style}
       onClick={handleClick}>
@@ -74,7 +64,7 @@ export const Select: React.FC<selectProps> = (props) => {
         hasArrow={false}
         open={isFocus}
         className="w-full"
-        contentStyle={{ width: selectRef.current?.offsetWidth + "px" }}
+        contentStyle={{ width: ref.current?.offsetWidth + "px" }}
         content={renderOptions}>
         <div className="w-full h-5.5 flex items-center">
           <div className="flex-1">

@@ -50,7 +50,7 @@ export const Button: React.FC<buttonProps> = function (props) {
     <button className={classes} disabled={disabled} type={type} {...restProps}>
       <div className={`w-full flex items-center ${children ? "gap-3" : ""}`}>
         {icon}
-        <div className="text-md flex-1 text-left text-nowrap">{children}</div>
+        <div className="text-md flex-1 text-nowrap">{children}</div>
       </div>
     </button>
   );

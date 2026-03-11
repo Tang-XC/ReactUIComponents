@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import type { groupProps } from "./types";
 const formatType = (val: any[]) => {
   return val.map((item) => String(item));

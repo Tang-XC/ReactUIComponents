@@ -9,12 +9,21 @@ export interface datePickerProps {
   disabled?: boolean;
   size?: datePickerSize;
 }
-export interface pannelProps {
-  value?: Date;
-  current?: Date;
-  prev?: (year: number, month: number) => void;
-  next?: (year: number, month: number) => void;
-  onChange?: (day: number) => void;
+export interface rangeProps extends Omit<datePickerProps, 'value' | 'defaultValue' | 'placeholder' | 'onChange'> {
+  value?: [Date, Date];
+  defaultValue?: [Date, Date];
+  placeholder?: [string, string];
+  onChange?: (val: [Date, Date]) => void
+}
+export interface panelProps {
+  currentDate?: Date;
+  rangeCurrentData?: [Date | null, Date | null];
+  viewDate?: Date;
+  hoverDate?: Date | null;
+  isRange?: boolean;
+  onChange?: (date: Date) => void;
+  onHover?: (date: Date) => void;
+  setToday?: () => void;
 }
 export const DATEPICKER_SIZE_MAP: Record<datePickerSize, string> = {
   small: "py-0 text-sm",

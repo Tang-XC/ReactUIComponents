@@ -1,9 +1,54 @@
-import { useState } from "react";
-
+import { DatePicker } from "./components/DatePicker";
 function App() {
-  const [isChecked, setIsChecked] = useState(false);
+  const menuItems = [
+    {
+      label: "菜单一",
+      key: "menu-1",
+      icon: <Icon name="apple" />,
+      children: [
+        {
+          label: "子菜单一",
+          key: "sub-menu-1",
+          children: [
+            {
+              label: "子子菜单一",
+              key: "sub-sub-menu-1",
+            },
+            {
+              label: "子子菜单二",
+              key: "sub-sub-menu-2",
+            },
+          ],
+        },
+        {
+          label: "子菜单二",
+          key: "sub-menu-2",
+        },
+      ],
+    },
+    {
+      label: "菜单二",
+      key: "menu-2",
+      icon: <Icon name="android" />,
+      children: [],
+    },
+    {
+      label: "菜单三",
+      key: "menu-3",
+      icon: <Icon name="hormany" />,
+      children: [],
+    },
+  ];
   return (
-    <div className="w-screen h-screen grid place-content-center">
+    <div className="w-screen h-screen overflow-auto grid place-content-center">
+      <Menu
+        style={{
+          width: "auto",
+        }}
+        items={menuItems}
+        selectedKeys={["sub-sub-menu-1"]}
+        mode="horizontal"
+      />
       <div className="flex items-center mb-4">
         <AutoComplete
           options={["Red", "Orange", "Yellow", "Green", "Cyan", "Blue", "Purple"]}></AutoComplete>
@@ -127,7 +172,13 @@ function App() {
           />
         </Form.Item>
         <Form.Item name="date">
-          <DatePicker />
+          <DatePicker placeholder="请选择日期" />
+        </Form.Item>
+        <Form.Item name="date">
+          <DatePicker.Range
+            // defaultValue={["2026-03-05", "2026-05-09"]}
+            placeholder={["开始时间", "结束时间"]}
+          />
         </Form.Item>
         <div className="w-full text-right">
           {/* <Button type="submit" size="small">
@@ -135,6 +186,7 @@ function App() {
           </Button> */}
         </div>
       </Form>
+      <Modal open={true} />
     </div>
   );
 }
