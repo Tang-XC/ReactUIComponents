@@ -21,7 +21,7 @@ export const Radio: React.FC<radioProps> & { Group: typeof Group } = (props) => 
   return (
     <div className={`flex ${className}`} style={style}>
       <div
-        className={`w-4 h-4 grid place-content-center cursor-pointer rounded-lg shadow-border ${disabledStyle}`}>
+        className={`form-control w-4 h-4 grid place-content-center cursor-pointer rounded-lg shadow-border ${disabledStyle}`}>
         <CSSTransition
           nodeRef={pointRef}
           in={mergedValue}

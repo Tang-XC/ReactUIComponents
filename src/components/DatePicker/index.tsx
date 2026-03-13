@@ -34,7 +34,9 @@ export const DatePicker: React.FC<datePickerProps> & { Range: typeof Range } = (
     setIsFocus(true);
   };
   const handleChange = (date: Date) => {
+    onChange?.(date);
     setCurrentValue(date);
+    setIsFocus(false);
   };
   return (
     <div

@@ -65,7 +65,7 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
   useImperativeHandle(ref, () => inputRef.current!);
   return (
     <div
-      className={`flex items-center px-2.5 box-border hover:shadow-hover ${INPUT_EFFECT_MAP[effect]} ${INPUT_SIZE_MAP[size]} ${focusStyle} ${disabledStyle}`}>
+      className={`form-control flex items-center px-2.5 box-border hover:shadow-hover ${INPUT_EFFECT_MAP[effect]} ${INPUT_SIZE_MAP[size]} ${focusStyle} ${disabledStyle}`}>
       {prefix && <div className="mr-2">{prefix}</div>}
       <input
         {...restProps}

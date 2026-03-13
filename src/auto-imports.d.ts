@@ -23,8 +23,8 @@ declare global {
   const CASCADER_SIZE_MAP: typeof import('./components/Cascader/types').CASCADER_SIZE_MAP
   const Cascader: typeof import('./components/Cascader/index').Cascader
   const Checkbox: typeof import('./components/Checkbox/index').Checkbox
-  const DATEPICKER_SIZE_MAP: typeof import('./components/DatePickerbak/types').DATEPICKER_SIZE_MAP
-  const DatePicker: typeof import('./components/DatePickerbak/index').DatePicker
+  const DATEPICKER_SIZE_MAP: typeof import('./components/DatePicker/types').DATEPICKER_SIZE_MAP
+  const DatePicker: typeof import('./components/DatePicker/index').DatePicker
   const Default: typeof import('./components/Popover/index.stories').Default
   const Form: typeof import('./components/Form/index').Form
   const ICON_VARIANT_MAP: typeof import('./components/Icon/types').ICON_VARIANT_MAP
@@ -58,7 +58,7 @@ declare global {
   const panel: typeof import('./components/DatePicker/panel').default
   const pannel: typeof import('./components/DatePickerbak/pannel').default
   const popoverStories: typeof import('./components/Popover/index.stories').default
-  const range: typeof import('./components/DatePickerbak/range').default
+  const range: typeof import('./components/DatePicker/range').default
   const sub: typeof import('./components/Menu/sub').default
   const useStore: typeof import('./components/Form/useStore').default
   const verticalItem: typeof import('./components/Menu/verticalItem').default
@@ -78,11 +78,8 @@ declare global {
   export type { checkboxProps } from './components/Checkbox/types'
   import('./components/Checkbox/types')
   // @ts-ignore
-  export type { panelProps } from './components/DatePicker/types'
+  export type { datePickerSize, datePickerProps, rangeProps, panelProps } from './components/DatePicker/types'
   import('./components/DatePicker/types')
-  // @ts-ignore
-  export type { datePickerSize, datePickerProps, pannelProps, rangeProps } from './components/DatePickerbak/types'
-  import('./components/DatePickerbak/types')
   // @ts-ignore
   export type { formLayout, formRules, formProps, itemProps, formContext } from './components/Form/types'
   import('./components/Form/types')

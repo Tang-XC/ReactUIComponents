@@ -84,7 +84,7 @@ export const Cascader: React.FC<cascaderProps> = (props) => {
   return (
     <div
       ref={cascaderRef}
-      className={`w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${CASCADER_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
+      className={`form-control w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${CASCADER_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
       style={style}
       onClick={handleClick}>
       <Popover

@@ -71,7 +71,7 @@ export default function (props: panelProps) {
     }
   };
   return (
-    <div className="p-2 max-w-[335px]">
+    <div className="p-2 max-w-83.75">
       <div className="flex justify-between items-center mb-2">
         <div className="flex items-center text-xl">
           <div>{year} 年</div>

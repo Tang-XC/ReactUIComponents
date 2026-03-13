@@ -56,7 +56,7 @@ export const Select: React.FC<selectProps> = (props) => {
   return (
     <div
       ref={ref}
-      className={`w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${SELECT_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
+      className={`form-control w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${SELECT_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
       style={style}
       onClick={handleClick}>
       <Popover

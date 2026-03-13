@@ -64,7 +64,14 @@ function App() {
           isOk: true,
           address: ["zhejiang", "hangzhou", "xiasha"],
         }}>
-        <Form.Item label="用户名" name="username">
+        <Form.Item
+          label="用户名"
+          name="username"
+          rules={[
+            {
+              required: true,
+            },
+          ]}>
           <Input />
         </Form.Item>
         <Form.Item label="密码" name="password">
@@ -174,7 +181,7 @@ function App() {
         <Form.Item name="date">
           <DatePicker placeholder="请选择日期" />
         </Form.Item>
-        <Form.Item name="date">
+        <Form.Item name="daterange">
           <DatePicker.Range
             // defaultValue={["2026-03-05", "2026-05-09"]}
             placeholder={["开始时间", "结束时间"]}

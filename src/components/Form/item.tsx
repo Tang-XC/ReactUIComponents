@@ -9,10 +9,21 @@ export default function (props: itemProps) {
     layout = "horizontal",
     children,
     valuePropName = "value",
+    rules,
+    validateTrigger = "onBlur",
   } = props;
-  const { dispatch, fields, initialValues, labelWidth: contextLabelWidth } = useContext(context);
+  const {
+    dispatch,
+    fields,
+    initialValues,
+    labelWidth: contextLabelWidth,
+    validateField,
+  } = useContext(context);
   const fieldState = fields[name];
   const value = fieldState && fieldState.value;
+  const errors = fieldState?.errors;
+  const isRequired = rules?.some((rule) => rule.required);
+  const hasErros = errors && errors.length > 0;
 
   if (React.Children.toArray(children).length === 0) {
     console.warn("No child element found in Form.Item,please provide one");
@@ -46,6 +57,11 @@ export default function (props: itemProps) {
       }
     },
   };
+  if (rules) {
+    controlProps[validateTrigger] = async () => {
+      await validateField(name);
+    };
+  }
   const childrenWithProps = React.cloneElement(child as React.ReactElement, {
     ...controlProps,
   });
@@ -54,20 +70,28 @@ export default function (props: itemProps) {
     dispatch({
       type: "addField",
       name: name,
-      value: { label, name, value: value },
+      value: { label, name, value, isValid: true, rules },
     });
   }, []);
   return (
-    <div className={`flex mb-4 ${layout === "vertical" ? "flex-col" : "items-center"}`}>
+    <div className={`flex mb-6 ${layout === "vertical" ? "flex-col" : "items-center"}`}>
       <label
         className="text-neutral-500 mr-3"
         style={{
           width: contextLabelWidth || labelWidth,
         }}
         title={label}>
+        {isRequired && <span className="text-danger-500 mr-1">*</span>}
         {label ? label + ":" : ""}
       </label>
-      <div className="flex-1">{childrenWithProps}</div>
+      <div className="flex-1 h-[32px]">
+        <div className={`${hasErros ? "[&_.form-control]:shadow-error" : ""}`}>
+          {childrenWithProps}
+        </div>
+        <div className={`${hasErros ? "text-danger-500" : ""}`}>
+          {hasErros ? errors[0].message : ""}
+        </div>
+      </div>
     </div>
   );
 }

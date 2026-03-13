@@ -1,4 +1,4 @@
-import { useRef, useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import useClickOutSide from "@/hooks/useClickOutSide";
 import type { rangeProps } from "./types";
 import Panel from "./panel";
@@ -101,6 +101,7 @@ export default function (props: rangeProps) {
     }
     if (date >= startTime) {
       setEndTime(date);
+      onChange?.([startTime, date]);
       setIsFocus(false);
     }
   };

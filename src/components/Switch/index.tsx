@@ -30,7 +30,7 @@ export const Switch: React.FC<switchProps> = (props) => {
   };
   return (
     <div
-      className={`rounded-2xl overflow-hidden shadow-border cursor-pointer ${SWITCH_SIZE_MAP[size].track} ${className} ${disabledStyle}`}
+      className={`form-control rounded-2xl overflow-hidden shadow-border cursor-pointer ${SWITCH_SIZE_MAP[size].track} ${className} ${disabledStyle}`}
       style={style}
       onClick={handleClick}>
       <div

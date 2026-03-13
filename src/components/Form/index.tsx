@@ -5,7 +5,7 @@ import useStore from "./useStore";
 export const context = createContext<formContext>({} as formContext);
 export const Form: React.FC<formProps> & { Item: typeof Item } = (props) => {
   const { name, children, labelWidth, initialValues } = props;
-  const { form, fields, dispatch } = useStore();
+  const { form, fields, dispatch, validateField } = useStore();
   return (
     <form name={name}>
       <context.Provider
@@ -15,6 +15,7 @@ export const Form: React.FC<formProps> & { Item: typeof Item } = (props) => {
           form,
           initialValues,
           labelWidth,
+          validateField,
         }}>
         {children}
       </context.Provider>
