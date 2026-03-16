@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import useStore from "./useStore";
-import { type RuleItem } from "async-validator";
+import type { CustomRule } from "./useStore";
 
 export type formLayout = "horizontal" | "vertical" | "inline";
 export interface formRules {
@@ -17,7 +17,7 @@ export interface formProps {
 export interface itemProps {
   label?: string;
   name: string;
-  rules?: RuleItem[];
+  rules?: CustomRule[];
   children?: ReactNode;
   layout?: formLayout;
   labelWidth?: string | number;

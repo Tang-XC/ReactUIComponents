@@ -22,7 +22,7 @@ export default function (props: itemProps) {
   const fieldState = fields[name];
   const value = fieldState && fieldState.value;
   const errors = fieldState?.errors;
-  const isRequired = rules?.some((rule) => rule.required);
+  const isRequired = rules?.some((rule) => typeof rule !== "function" && rule.required);
   const hasErros = errors && errors.length > 0;
 
   if (React.Children.toArray(children).length === 0) {
@@ -88,7 +88,7 @@ export default function (props: itemProps) {
         <div className={`${hasErros ? "[&_.form-control]:shadow-error" : ""}`}>
           {childrenWithProps}
         </div>
-        <div className={`${hasErros ? "text-danger-500" : ""}`}>
+        <div className={`mt-0.5 ${hasErros ? "text-danger-500" : ""}`}>
           {hasErros ? errors[0].message : ""}
         </div>
       </div>

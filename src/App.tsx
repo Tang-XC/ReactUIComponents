@@ -1,4 +1,5 @@
 import { DatePicker } from "./components/DatePicker";
+import type { CustomRule } from "@/components/Form/useStore";
 function App() {
   const menuItems = [
     {
@@ -39,6 +40,11 @@ function App() {
       children: [],
     },
   ];
+  const repeatPasswordRule: CustomRule[] = [
+    ({ getFieldValue }) => {
+      return Promise.resolve();
+    },
+  ];
   return (
     <div className="w-screen h-screen overflow-auto grid place-content-center">
       <Menu
@@ -75,6 +81,9 @@ function App() {
           <Input />
         </Form.Item>
         <Form.Item label="密码" name="password">
+          <Input type="password" disabled />
+        </Form.Item>
+        <Form.Item label="重复密码" name="repeatPassword" rules={repeatPasswordRule}>
           <Input type="password" disabled />
         </Form.Item>
         <Form.Item name="gender">

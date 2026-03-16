@@ -1,10 +1,15 @@
 import { useState, useReducer } from "react";
 import Schema, { type RuleItem, type ValidateError } from "async-validator";
+export interface CustomRuleFuncParams {
+  getFieldValue: (name: string) => any;
+}
+export type CustomRuleFunc = (params: CustomRuleFuncParams) => Promise<any>;
+export type CustomRule = RuleItem | CustomRuleFunc;
 export interface FieldDetail {
   name: string;
   label?: string;
   value?: string;
-  rules?: RuleItem[];
+  rules?: CustomRule[];
   isValid?: boolean;
   errors?: ValidateError[];
 }
@@ -47,11 +52,24 @@ function fieldsReducer(state: FieldsState, action: FieldsAction): FieldsState {
 function useStore() {
   const [form, setForm] = useState<FormState>({ isValid: true });
   const [fields, dispatch] = useReducer(fieldsReducer, {});
+  const getFieldValue = (name: string) => {
+    return fields[name] && fields[name].value;
+  };
+  const transformRules = (rules: CustomRule[]) => {
+    return rules.map((rule) => {
+      if (typeof rule === "function") {
+        const calledRule = rule({ getFieldValue });
+        return calledRule;
+      } else {
+        return rule;
+      }
+    });
+  };
   const validateField = async (name: string) => {
-    console.log("fields", fields, name);
     const { value, rules = [] } = fields[name];
+    const afterRules = transformRules(rules);
     const descriptor = {
-      [name]: rules,
+      [name]: afterRules,
     };
     const valueMap = {
       [name]: value,
@@ -63,7 +81,6 @@ function useStore() {
       await validator.validate(valueMap);
     } catch (e: any) {
       isValid = false;
-      console.log("async-validator", e?.errors);
       errors = e?.errors;
     } finally {
       dispatch({ type: "updateValidateResult", name, value: { isValid, errors } });
@@ -74,6 +91,7 @@ function useStore() {
     fields,
     dispatch,
     validateField,
+    getFieldValue,
   };
 }
 export default useStore;

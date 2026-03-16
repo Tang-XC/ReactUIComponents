@@ -60,6 +60,7 @@ declare global {
   const popoverStories: typeof import('./components/Popover/index.stories').default
   const range: typeof import('./components/DatePicker/range').default
   const sub: typeof import('./components/Menu/sub').default
+  const useForm: typeof import('./components/Form/useForm').useForm
   const useStore: typeof import('./components/Form/useStore').default
   const verticalItem: typeof import('./components/Menu/verticalItem').default
 }
@@ -84,7 +85,7 @@ declare global {
   export type { formLayout, formRules, formProps, itemProps, formContext } from './components/Form/types'
   import('./components/Form/types')
   // @ts-ignore
-  export type { FieldDetail, FieldsState, FormState, FieldsAction } from './components/Form/useStore'
+  export type { CustomRuleFuncParams, CustomRuleFunc, CustomRule, FieldDetail, FieldsState, FormState, FieldsAction } from './components/Form/useStore'
   import('./components/Form/useStore')
   // @ts-ignore
   export type { iconProps } from './components/Icon/types'
