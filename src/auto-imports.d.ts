@@ -36,16 +36,20 @@ declare global {
   const LIGHTER_BUTTON_BG: typeof import('./components/Button/types').LIGHTER_BUTTON_BG
   const Menu: typeof import('./components/Menu/index').Menu
   const Modal: typeof import('./components/Modal/index').Modal
+  const PROGRESS_VARIANT_MAP: typeof import('./components/Progress/types').PROGRESS_VARIANT_MAP
   const Popover: typeof import('./components/Popover/index').Popover
+  const Progress: typeof import('./components/Progress/index').Progress
   const Radio: typeof import('./components/Radio/index').Radio
   const SELECT_SIZE_MAP: typeof import('./components/Select/types').SELECT_SIZE_MAP
   const SWITCH_SIZE_MAP: typeof import('./components/Switch/types').SWITCH_SIZE_MAP
   const SWITCH_VARIANT_MAP: typeof import('./components/Switch/types').SWITCH_VARIANT_MAP
   const Select: typeof import('./components/Select/index').Select
   const Switch: typeof import('./components/Switch/index').Switch
+  const Upload: typeof import('./components/Upload/index').Upload
   const buttonStories: typeof import('./components/Button/index.stories').default
   const context: typeof import('./components/Menu/index').context
   const dispatch: typeof import('./components/Form/useStore').dispatch
+  const dragger: typeof import('./components/Upload/dragger').default
   const fields: typeof import('./components/Form/useStore').fields
   const form: typeof import('./components/Form/useStore').form
   const group: typeof import('./components/Radio/group').default
@@ -60,6 +64,7 @@ declare global {
   const popoverStories: typeof import('./components/Popover/index.stories').default
   const range: typeof import('./components/DatePicker/range').default
   const sub: typeof import('./components/Menu/sub').default
+  const upload: typeof import('./components/Upload/index').upload
   const useForm: typeof import('./components/Form/useForm').useForm
   const useStore: typeof import('./components/Form/useStore').default
   const verticalItem: typeof import('./components/Menu/verticalItem').default
@@ -82,10 +87,10 @@ declare global {
   export type { datePickerSize, datePickerProps, rangeProps, panelProps } from './components/DatePicker/types'
   import('./components/DatePicker/types')
   // @ts-ignore
-  export type { formLayout, formRules, formProps, itemProps, formContext } from './components/Form/types'
+  export type { RenderProps, formLayout, formRules, formProps, itemProps, formContext } from './components/Form/types'
   import('./components/Form/types')
   // @ts-ignore
-  export type { CustomRuleFuncParams, CustomRuleFunc, CustomRule, FieldDetail, FieldsState, FormState, FieldsAction } from './components/Form/useStore'
+  export type { CustomRuleFuncParams, CustomRuleFunc, CustomRule, FieldDetail, FieldsState, ValidateErrorType, FormState, FieldsAction } from './components/Form/useStore'
   import('./components/Form/useStore')
   // @ts-ignore
   export type { iconProps } from './components/Icon/types'
@@ -103,6 +108,9 @@ declare global {
   export type { triggerType, popoverProps } from './components/Popover/types'
   import('./components/Popover/types')
   // @ts-ignore
+  export type { progressVariant, progressProps } from './components/Progress/types'
+  import('./components/Progress/types')
+  // @ts-ignore
   export type { radioProps, groupLayout, groupOptions, groupProps } from './components/Radio/types'
   import('./components/Radio/types')
   // @ts-ignore
@@ -111,4 +119,7 @@ declare global {
   // @ts-ignore
   export type { switchSize, switchVariant, switchProps } from './components/Switch/types'
   import('./components/Switch/types')
+  // @ts-ignore
+  export type { listType, uploadFileType, uploadFileStatus, uploadFile, uploadProps, draggerProps } from './components/Upload/types'
+  import('./components/Upload/types')
 }

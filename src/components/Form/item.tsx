@@ -70,7 +70,7 @@ export default function (props: itemProps) {
     dispatch({
       type: "addField",
       name: name,
-      value: { label, name, value, isValid: true, rules },
+      value: { label, name, value, isValid: true, rules: rules || [], errors: [] },
     });
   }, []);
   return (
@@ -84,7 +84,7 @@ export default function (props: itemProps) {
         {isRequired && <span className="text-danger-500 mr-1">*</span>}
         {label ? label + ":" : ""}
       </label>
-      <div className="flex-1 h-[32px]">
+      <div className="flex-1 h-min-[32px]">
         <div className={`${hasErros ? "[&_.form-control]:shadow-error" : ""}`}>
           {childrenWithProps}
         </div>

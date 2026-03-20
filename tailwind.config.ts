@@ -41,7 +41,10 @@ module.exports = {
         'border': `0 0 0 1px ${theme('colors.neutral.300')}`,
         'focus': `0 0 0 1px ${theme('colors.primary.500')}`,
         'hover': `0 0 0 1px ${theme('colors.neutral.500')}`,
-        'error': `0 0 0 1px ${theme('colors.danger.500')}`
+        'error': `0 0 0 2px ${theme('colors.danger.500')}`,
+        'success': `0 0 0 2px ${theme('colors.success.500')}`,
+        'primary': `0 0 0 2px ${theme('colors.primary.500')}`,
+        'warning': `0 0 0 2px ${theme('colors.warning.500')}`
       }),
     },
   },

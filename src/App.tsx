@@ -41,12 +41,19 @@ function App() {
     },
   ];
   const repeatPasswordRule: CustomRule[] = [
-    ({ getFieldValue }) => {
-      return Promise.resolve();
-    },
+    ({ getFieldValue }) => ({
+      asyncValidator(_, value) {
+        return new Promise((resolve, reject) => {
+          if (value !== getFieldValue("password")) {
+            reject("Do not match!");
+          }
+          resolve();
+        });
+      },
+    }),
   ];
   return (
-    <div className="w-screen h-screen overflow-auto grid place-content-center">
+    <div className="w-screen overflow-auto grid place-content-center">
       <Menu
         style={{
           width: "auto",
@@ -80,11 +87,18 @@ function App() {
           ]}>
           <Input />
         </Form.Item>
-        <Form.Item label="密码" name="password">
-          <Input type="password" disabled />
+        <Form.Item
+          label="密码"
+          name="password"
+          rules={[
+            {
+              required: true,
+            },
+          ]}>
+          <Input type="password" />
         </Form.Item>
         <Form.Item label="重复密码" name="repeatPassword" rules={repeatPasswordRule}>
-          <Input type="password" disabled />
+          <Input type="password" />
         </Form.Item>
         <Form.Item name="gender">
           <Radio.Group
@@ -94,7 +108,15 @@ function App() {
             ]}
           />
         </Form.Item>
-        <Form.Item name="isAgree">
+        <Form.Item
+          name="isAgree"
+          rules={[
+            {
+              type: "enum",
+              enum: ["0", "1", "2"],
+              message: "请先勾选同意",
+            },
+          ]}>
           <Checkbox.Group
             options={[
               {
@@ -196,10 +218,50 @@ function App() {
             placeholder={["开始时间", "结束时间"]}
           />
         </Form.Item>
+        <Form.Item name="upload">
+          <Upload
+            tip="jpg/png files with a size less than 500KB."
+            listType="text"
+            drag={true}
+            fileList={[
+              {
+                name: "pic1",
+                url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+                uid: "1",
+                status: "done",
+                size: 1234,
+                percent: 100,
+                type: "doc",
+              },
+              {
+                name: "pic2",
+                url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+                uid: "3",
+                status: "error",
+                size: 1234,
+                percent: 100,
+                type: "png",
+              },
+              {
+                name: "pic2",
+                url: "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+                uid: "2",
+                status: "uploading",
+                size: 1234,
+                percent: 80,
+                type: "xls",
+              },
+            ]}>
+            <div className="p-3">
+              <Icon name="upload" size={24} />
+            </div>
+            <div>Click or Drag file to this area to upload</div>
+          </Upload>
+        </Form.Item>
         <div className="w-full text-right">
-          {/* <Button type="submit" size="small">
+          <Button type="submit" size="small">
             提交
-          </Button> */}
+          </Button>
         </div>
       </Form>
       <Modal open={true} />

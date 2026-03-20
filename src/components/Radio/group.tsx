@@ -19,9 +19,7 @@ export default function (props: groupProps) {
     onChange?.(evt);
   };
   return (
-    <div
-      className={`form-control flex ${layout === "vertical" ? "flex-col" : ""} ${className}`}
-      style={style}>
+    <div className={`flex ${layout === "vertical" ? "flex-col" : ""} ${className}`} style={style}>
       {options.map((item) => {
         return (
           <Radio
