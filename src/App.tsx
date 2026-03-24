@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { DatePicker } from "./components/DatePicker";
 import type { CustomRule } from "@/components/Form/useStore";
+import { message } from "@/components/Message";
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
   const menuItems = [
     {
       label: "菜单一",
@@ -264,7 +267,21 @@ function App() {
           </Button>
         </div>
       </Form>
-      <Modal open={true} />
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <h1>Hello world</h1>
+      </Modal>
+      <Button className="mt-1!" onClick={() => setIsOpen(true)}>
+        Open Modal
+      </Button>
+      <Button
+        className="mt-1!"
+        onClick={() =>
+          message.success({
+            content: "hello world",
+          })
+        }>
+        Open Message
+      </Button>
     </div>
   );
 }

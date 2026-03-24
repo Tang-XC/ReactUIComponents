@@ -1,0 +1,19 @@
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out allow-discrete;
+}
+
+.modal[open]::backdrop {
+  opacity: 1;
+}
+
+/* 定义起始样式：当 dialog 即将变为 [open] 时，backdrop 从 opacity:0 开始 */
+@starting-style {
+  .modal[open]::backdrop {
+    opacity: 0;
+  }
+}
+.popUp-exit-active.modal[open]::backdrop {
+  opacity: 0;
+}

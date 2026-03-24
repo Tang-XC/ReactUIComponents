@@ -34,7 +34,9 @@ declare global {
   const Input: typeof import('./components/Input/index').Input
   const Item: typeof import('./components/Menu/verticalItem').Item
   const LIGHTER_BUTTON_BG: typeof import('./components/Button/types').LIGHTER_BUTTON_BG
+  const MESSAGE_TYPE_MAP: typeof import('./components/Message/types').MESSAGE_TYPE_MAP
   const Menu: typeof import('./components/Menu/index').Menu
+  const Message: typeof import('./components/Message/message').Message
   const Modal: typeof import('./components/Modal/index').Modal
   const PROGRESS_VARIANT_MAP: typeof import('./components/Progress/types').PROGRESS_VARIANT_MAP
   const Popover: typeof import('./components/Popover/index').Popover
@@ -59,6 +61,7 @@ declare global {
   const item: typeof import('./components/Menu_副本/item').default
   const menu: typeof import('./components/Cascader/menu').default
   const menuStories: typeof import('./components/Menu/index.stories').default
+  const message: typeof import('./components/Message/message').default
   const panel: typeof import('./components/DatePicker/panel').default
   const pannel: typeof import('./components/DatePickerbak/pannel').default
   const popoverStories: typeof import('./components/Popover/index.stories').default
@@ -101,6 +104,9 @@ declare global {
   // @ts-ignore
   export type { menuMode, menuSize, item, menuItemProps, menuProps, contextType } from './components/Menu/types'
   import('./components/Menu/types')
+  // @ts-ignore
+  export type { messageType, messageConfig, messageCall } from './components/Message/types'
+  import('./components/Message/types')
   // @ts-ignore
   export type { modalProps } from './components/Modal/types'
   import('./components/Modal/types')

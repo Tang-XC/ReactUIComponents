@@ -19,17 +19,18 @@ export const Form: React.FC<formProps> & { Item: typeof Item } = (props) => {
   return (
     <form name={name} onSubmit={submitForm}>
       <context.Provider
-        value={{
-          dispatch,
-          fields,
-          form,
-          initialValues,
-          labelWidth,
-          validateField,
-        }}>
+        value={
+          {
+            dispatch,
+            fields,
+            form,
+            initialValues,
+            labelWidth,
+            validateField,
+          } as formContext
+        }>
         {typeof children === "function" ? children(form) : children}
       </context.Provider>
-      <div className="w-75">{JSON.stringify(fields)}</div>
     </form>
   );
 };
