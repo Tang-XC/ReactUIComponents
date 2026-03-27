@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import useStore from "./useStore";
-import type { CustomRule } from "./useStore";
+import type { CustomRule, FormState } from "./useStore";
 import type { ValidateError } from "async-validator";
 export type RenderProps = (form: FormState) => ReactNode;
 export type formLayout = "horizontal" | "vertical" | "inline";

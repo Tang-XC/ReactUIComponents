@@ -9,8 +9,8 @@ export interface messageConfig {
 }
 export interface messageCall extends Pick<messageConfig, "content" | "duration"> {}
 export const MESSAGE_TYPE_MAP: Record<messageType, string> = {
-  success: "text-success-500",
-  danger: "text-danger-500",
-  warning: "text-warning-500",
-  neutral: "text-neutral-500",
+  success: "text-success-500!",
+  danger: "text-danger-500!",
+  warning: "text-warning-500!",
+  neutral: "text-neutral-500!",
 };

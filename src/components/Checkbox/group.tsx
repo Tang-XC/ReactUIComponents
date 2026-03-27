@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import type { groupProps } from "./types";
+import { Checkbox } from "@/components/index";
 const formatType = (val: any[]) => {
   return val.map((item) => String(item));
 };

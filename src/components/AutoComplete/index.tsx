@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState, type ComponentRef, useMemo, useCallback } from "react";
+import React, { useEffect, useRef, useState, type ComponentRef, useMemo, useCallback } from "react";
 import type { autoCompleteProps } from "./types";
 import { debounce } from "@/utils/tools";
+import { Input, Menu, Popover } from "@/components/index";
 
 export const AutoComplete: React.FC<autoCompleteProps> = (props) => {
   const {

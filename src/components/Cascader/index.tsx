@@ -6,6 +6,7 @@ import {
   type cascaderOption,
   CASCADER_SIZE_MAP,
 } from "./types";
+import { Popover, Icon } from "@/components/index";
 export const context = createContext<cascaderContext>({} as cascaderContext);
 export const Cascader: React.FC<cascaderProps> = (props) => {
   const {
@@ -84,7 +85,7 @@ export const Cascader: React.FC<cascaderProps> = (props) => {
   return (
     <div
       ref={cascaderRef}
-      className={`form-control w-full px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${CASCADER_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
+      className={`form-control w-full min-w-40 px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${CASCADER_SIZE_MAP[size]} ${disabledStyle} ${focusStyle} ${className}`}
       style={style}
       onClick={handleClick}>
       <Popover

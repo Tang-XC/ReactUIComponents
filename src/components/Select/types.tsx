@@ -15,7 +15,7 @@ export interface selectProps {
   size?: selectSize;
 }
 
-export const SELECT_SIZE_MAP: Record<inputSize, string> = {
+export const SELECT_SIZE_MAP: Record<selectSize, string> = {
   small: " py-0 text-sm",
   default: "py-1 text-md",
   large: "py-1.5 text-lg [&_input]:h-6",

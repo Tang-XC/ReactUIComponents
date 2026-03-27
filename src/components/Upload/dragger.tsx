@@ -1,4 +1,4 @@
-import { useState, type DragEventHandler } from "react";
+import { useState } from "react";
 import type { draggerProps } from "./types";
 export default function (props: draggerProps) {
   const { children, onFile } = props;

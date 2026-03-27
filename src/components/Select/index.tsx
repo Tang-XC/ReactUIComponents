@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import useClickOutSide from "@/hooks/useClickOutSide";
 import { type selectProps, SELECT_SIZE_MAP } from "./types";
 import type { item } from "../Menu/types";
+import { Menu, Popover, Icon } from "@/components/index";
 export const Select: React.FC<selectProps> = (props) => {
   const {
     className = "",

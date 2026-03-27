@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { type modalProps } from "./types";
 import { CSSTransition } from "react-transition-group";
+import { Button, Icon } from "@/components/index";
 import "./style.css";
 
 export const Modal: React.FC<modalProps> = (props: modalProps) => {

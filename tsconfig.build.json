@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist", // 输出目录
+    "module": "esnext", // 其值有：CommonJS、ESNext或ES2020，用于决定编译后输出 require 还是 import
+    "target": "es2015",
+    "lib": ["ES5", "ES2015", "ES2016", "es2018","DOM"],
+    "declaration": true, // 允许生成.d.ts文件
+    
+    // 文件引入时，规定了引入路径的路由方式，其值有：
+    // node，先找node_module后找package.json中的type或main字段，如果没有，就找index.d.ts或者index.js，但是不支持package.json中复杂的exports字段
+    // bundler，vite标配,只要是vite能解析的，都不会报错，且完美支持package.json中的exports字段
+    // NodeNext，适用于纯粹的Node.js后端应用(使用原生ES Modules)
+    "moduleResolution": "bundler", 
+    "emitDeclarationOnly": true, // 只生成类型文件，不生成 JS（JS交给vite处理）
+    "allowSyntheticDefaultImports": true // 允许你像引入“默认导出（Default Export）”一样，去引入那些其实并没有默认导出的模块
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.test.tsx","src/**/*.stories.tsx"]
+} 

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Menu } from "./index";
+import { Icon } from "@/components/index";
 
 const meta = {
   title: "Components/Menu",

@@ -9,7 +9,7 @@ import {
   BUTTON_SIZE_MAP,
 } from "./types";
 import { cn } from "@/utils/tools";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 export const Button: React.FC<buttonProps> = function (props) {
   const {
     className = "",

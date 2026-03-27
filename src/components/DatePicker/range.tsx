@@ -1,7 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
 import useClickOutSide from "@/hooks/useClickOutSide";
-import type { rangeProps } from "./types";
+import { type rangeProps, DATEPICKER_SIZE_MAP } from "./types";
 import Panel from "./panel";
+import { Popover, Icon } from "@/components/index";
 export default function (props: rangeProps) {
   const {
     className,

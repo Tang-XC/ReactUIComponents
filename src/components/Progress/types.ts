@@ -6,7 +6,7 @@ export interface progressProps {
   showText?: boolean;
   percentage: number;
 }
-export const PROGRESS_VARIANT_MAP: Record<buttonVariant, string> = {
+export const PROGRESS_VARIANT_MAP: Record<progressVariant, string> = {
   primary: 'bg-primary-500',
   success: 'bg-success-500',
   danger: 'bg-danger-500',

@@ -1,7 +1,8 @@
-import { useRef, useState, useMemo, type ChangeEvent } from "react";
+import React, { useRef, useState, useMemo, type ChangeEvent } from "react";
 import type { checkboxProps } from "./types";
 import { CSSTransition } from "react-transition-group";
 import Group from "./group";
+import { Icon } from "../Icon/index";
 
 export const Checkbox: React.FC<checkboxProps> & { Group: typeof Group } = (props) => {
   const { children, className, disabled, style, checked, onChange, ...restProps } = props;
@@ -30,7 +31,7 @@ export const Checkbox: React.FC<checkboxProps> & { Group: typeof Group } = (prop
           <div
             ref={pointRef}
             className="rounded-sm w-4 h-4 bg-primary-500 grid place-content-center">
-            <Icon name="yes" color="#FFF" size={10} />
+            <Icon name="yes" color="#FFF" size={14} />
           </div>
         </CSSTransition>
 

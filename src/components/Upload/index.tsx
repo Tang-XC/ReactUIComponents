@@ -2,6 +2,7 @@ import { useRef, useState, type ChangeEvent } from "react";
 import axios from "axios";
 import { type uploadProps, type uploadFile } from "./types";
 import Dragger from "./dragger";
+import { Icon, Progress } from "@/components/index";
 const CardEl = (props: { data: uploadFile; onRemove: () => void }) => {
   const { data } = props;
   const baseStyle =

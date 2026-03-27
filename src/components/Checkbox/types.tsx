@@ -14,7 +14,7 @@ export interface groupOptions {
   value: any;
 }
 export interface groupProps extends Omit<checkboxProps, "defaultChecked" | "onChange"> {
-  layout?: groupLayout;
+  layout?: "vertical" | "horziontal";
   options: groupOptions[];
   defaultChecked?: any[];
   value?: any[];

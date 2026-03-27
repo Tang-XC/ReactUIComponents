@@ -3,6 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import type { menuItemProps, item } from "./types";
 import { context } from "./index";
 import MenuItem from "./verticalItem";
+import { Button, Icon } from "@/components/index";
 export default function (props: menuItemProps) {
   const { itemData } = props;
   const selectedStyle = "bg-primary-700 text-primary-300";

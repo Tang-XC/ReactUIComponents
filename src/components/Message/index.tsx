@@ -59,6 +59,7 @@ const initMessageManger = () => {
   const root = createRoot(container);
   root.render(<MessageContainer />);
 };
+export const MessageBox = Message;
 export const message = {
   open: (config: messageConfig) => {
     if (addMessage) {
@@ -75,17 +76,17 @@ export const message = {
     }),
   success: (props: messageCall) =>
     message.open({
-      type: "neutral",
+      type: "success",
       ...props,
     }),
   danger: (props: messageCall) =>
     message.open({
-      type: "neutral",
+      type: "danger",
       ...props,
     }),
   warning: (props: messageCall) =>
     message.open({
-      type: "neutral",
+      type: "warning",
       ...props,
     }),
 };

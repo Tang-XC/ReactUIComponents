@@ -3,6 +3,7 @@ import type { menuItemProps } from "./types";
 import { context } from "./index";
 import MenuItem from "./horizontalItem";
 import { Popover } from "../Popover";
+import { Button, Icon } from "@/components/index";
 export default function (props: menuItemProps) {
   const { itemData, asChild } = props;
   const selectedStyle = "bg-primary-700 text-primary-300";

@@ -1,8 +1,9 @@
-import React, { useRef, useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import { type datePickerProps, DATEPICKER_SIZE_MAP } from "./types";
 import Panel from "./panel";
 import Range from "./range";
 import useClickOutSide from "@/hooks/useClickOutSide";
+import { Popover, Icon } from "@/components/index";
 export const DatePicker: React.FC<datePickerProps> & { Range: typeof Range } = (props) => {
   const {
     className,
@@ -41,7 +42,7 @@ export const DatePicker: React.FC<datePickerProps> & { Range: typeof Range } = (
   return (
     <div
       ref={ref}
-      className={`w-full flex items-center px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${className} ${focusStyle} ${disabledStyle} ${DATEPICKER_SIZE_MAP[size]}`}
+      className={`w-full min-w-40 flex items-center px-2.5 box-border rounded-sm shadow-border hover:shadow-hover ${className} ${focusStyle} ${disabledStyle} ${DATEPICKER_SIZE_MAP[size]}`}
       style={style}
       onClick={handleClick}>
       <Popover

@@ -1,5 +1,6 @@
 import { useState, type ChangeEvent } from "react";
 import type { groupProps } from "./types";
+import { Radio } from "@/components/index";
 export default function (props: groupProps) {
   const {
     className,

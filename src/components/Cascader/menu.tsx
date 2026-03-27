@@ -3,6 +3,7 @@ import type { cascaderMenuProps, cascaderOption } from "./types";
 import { CSSTransition } from "react-transition-group";
 import CascaderMenu from "./menu";
 import { context } from "./index";
+import { Button, Icon } from "@/components/index";
 export default function (props: cascaderMenuProps) {
   const { options = [], optionWidth, value } = props;
   const { handleChange } = useContext(context);

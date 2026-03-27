@@ -1,24 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Icon } from "./index";
+import { DatePicker } from "./index";
 
 const meta = {
-  title: "Components/Icon",
-  component: Icon,
+  title: "Components/DatePicker",
+  component: DatePicker,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Icon>;
+} satisfies Meta<typeof DatePicker>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    name: "apple",
-    size: 24,
-    variant: "neutral",
-    color: "red",
+    placeholder: "Select a date",
+    defaultValue: new Date(),
   },
 };
