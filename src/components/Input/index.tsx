@@ -17,17 +17,24 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
   } = props;
   const inputRef = useRef<HTMLInputElement>(null);
   const [isFocus, setIsFocus] = useState(false);
+  const [innerValue, setInnerValue] = useState(restProps.defaultValue);
+  const mergedValue = useMemo(() => {
+    const isControlled = "value" in props;
+    return isControlled ? restProps.value : innerValue;
+  }, [innerValue]);
   const focusStyle = useMemo(
     () => (isFocus ? "border-transparent shadow-focus! bg-transparent" : ""),
     [isFocus],
   );
-  const isShowClear = useMemo(() => clearable && restProps.value, [clearable, restProps.value]);
+  const isShowClear = useMemo(() => clearable && mergedValue, [clearable, mergedValue]);
   const disabledStyle = useMemo(
     () => (disabled ? "pointer-events-none opacity-50 bg-disabled" : ""),
     [disabled],
   );
+
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     if (disabled) return;
+    setInnerValue(evt.target.value);
     onChange?.(evt);
   };
   const handleFocus = (evt: React.FocusEvent<HTMLInputElement>) => {
@@ -50,6 +57,7 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
     } as unknown as React.ChangeEvent<HTMLInputElement>;
     onChange?.(emptyEvt);
     onClear?.();
+    setInnerValue("");
     inputRef.current?.focus();
   };
   const fixControlledValue = (value: any) => {
@@ -68,13 +76,12 @@ export const Input = forwardRef<HTMLInputElement, inputProps>((props, ref) => {
       className={`form-control flex items-center px-2.5 box-border hover:shadow-hover ${INPUT_EFFECT_MAP[effect]} ${INPUT_SIZE_MAP[size]} ${focusStyle} ${disabledStyle}`}>
       {prefix && <div className="mr-2">{prefix}</div>}
       <input
-        {...restProps}
         ref={inputRef}
+        value={mergedValue}
         className="w-full h-5.5 outline-none placeholder-neutral-300"
         onChange={handleChange}
         onFocus={handleFocus}
         onBlur={handleBlur}></input>
-
       {isShowClear && (
         <div className="cursor-pointer" onClick={handleClear}>
           <Icon name="clear" size={14} className="text-gray-300!" />
